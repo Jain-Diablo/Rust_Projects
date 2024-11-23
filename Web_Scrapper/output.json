@@ -1,0 +1,688 @@
+{
+  "title": "lichess.org • Free Online Chess",
+  "meta_description": "Free online chess server. Play chess in a clean interface. No registration, no ads, no plugin required. Play chess with the computer, friends or random opponents.",
+  "headings": [
+    "lichess .org",
+    "Play lichess.org",
+    "Create a game",
+    "Arena tournaments",
+    "Swiss tournaments",
+    "Simultaneous exhibitions",
+    "Puzzles",
+    "Puzzles",
+    "Puzzle Themes",
+    "Puzzle Dashboard",
+    "Puzzle Streak",
+    "Puzzle Storm",
+    "Puzzle Racer",
+    "Learn",
+    "Chess basics",
+    "Practice",
+    "Coordinates",
+    "Study",
+    "Coaches",
+    "Watch",
+    "Broadcasts",
+    "Lichess TV",
+    "Current games",
+    "Streamers",
+    "Video library",
+    "Community",
+    "Players",
+    "Teams",
+    "Forum",
+    "Blog",
+    "Tools",
+    "Analysis board",
+    "Openings",
+    "Board editor",
+    "Import game",
+    "Advanced search",
+    "Donate",
+    "No text",
+    "Sign in",
+    "GM Night-King96  lichess.org Bullet Saturday",
+    "Streamers »",
+    "Titled Arena November '24 Titled only, $1,000 prize pool 337 players •",
+    "Horde Shield Arena Battle for the Horde Shield 216 players •",
+    "Weekly Atomic Arena 128 players • Playing now",
+    "Rapid Swiss 1 player •",
+    "really",
+    "About Lichess...",
+    "GM  chessmaster2006 3178 0:14 GM  KontraJaKO 3191 0:18",
+    "Puzzle of the day White to play",
+    "22 Nov 2024 mullerrj How to improve in chess- for beginners through intermediate!",
+    "15 Nov 2024 andreagobbez Deep Learning Self-Play - Bot journey!",
+    "20 Nov 2024 GM  GABUZYAN_CHESSMOOD How Being Rich Almost Killed My Chess Career",
+    "21 Nov 2024 FM  juancruzariasTDF How to Win a Won game by Controlling Change",
+    "21 Nov 2024 TheOnoZone What's the Point of Puzzles?",
+    "20 Nov 2024 FM  Coach_Istvanovszki Middlegame Madness #1: The Intuitive Sacrifice - VIDEO",
+    "15 Nov 2024 WFM  fla2021 The Power of the Fixed Center",
+    "20 Nov 2024 HelloImRiley Training Game #10 with Super Eval",
+    "21 Nov 2024 CM  loristavernier What should you eat to improve at Chess ?",
+    "Open tournaments More »",
+    "Horde Shield",
+    "Titled Arena November '24",
+    "Weekly Atomic",
+    "Daily Rapid",
+    "Daily Crazyhouse",
+    "Hourly HyperBullet",
+    "≤1700 Blitz",
+    "Hourly Bullet",
+    "≤2000 SuperBlitz",
+    "Hourly Blitz",
+    "≤1500 Rapid",
+    "≤1300 Bullet",
+    "Semi-Slav Defense SuperBlitz",
+    "No text",
+    "Warm-up Arena",
+    "Titled Arena",
+    "No text",
+    "Magnus Carlsen",
+    "Fabiano Caruana",
+    "Chess960",
+    "Freestyle Chess Summit Singapore",
+    "No text",
+    "Chess960",
+    "Magnus Carlsen",
+    "Fabiano Caruana",
+    "Freestyle Chess Summit Singapore",
+    "broadcast",
+    "No text",
+    "Aleksandar Inđić",
+    "European Individual Chess Championship 2024",
+    "FIDE World Cup 2025",
+    "No text",
+    "IM YOSEPH AND FRIENDS",
+    "Streamers Battle November 2024",
+    "Полина Янученко1",
+    "Zhigalko_Sergei & Friends",
+    "IM Manitodeplomo Fan Club",
+    "streamers",
+    "No text",
+    "week",
+    "Shield Arenas",
+    "Chess960 Arena",
+    "unique trophy",
+    "No text",
+    "Winter's Comin' Arena",
+    "Connecticut State Chess Association",
+    "All updates »",
+    "Donate Become a Lichess Patron",
+    "Swag Store Play chess in style",
+    "About Lichess",
+    "FAQ",
+    "Contact",
+    "Mobile App",
+    "Terms of Service",
+    "Privacy",
+    "Source Code",
+    "Ads",
+    "Mastodon",
+    "GitHub",
+    "Discord",
+    "Twitter",
+    "YouTube",
+    "Twitch"
+  ],
+  "links": [
+    {
+      "text": "lichess .org",
+      "href": "/"
+    },
+    {
+      "text": "Play lichess.org",
+      "href": "/"
+    },
+    {
+      "text": "Create a game",
+      "href": "/?any#hook"
+    },
+    {
+      "text": "Arena tournaments",
+      "href": "/tournament"
+    },
+    {
+      "text": "Swiss tournaments",
+      "href": "/swiss"
+    },
+    {
+      "text": "Simultaneous exhibitions",
+      "href": "/simul"
+    },
+    {
+      "text": "Puzzles",
+      "href": "/training"
+    },
+    {
+      "text": "Puzzles",
+      "href": "/training"
+    },
+    {
+      "text": "Puzzle Themes",
+      "href": "/training/themes"
+    },
+    {
+      "text": "Puzzle Dashboard",
+      "href": "/training/dashboard/30"
+    },
+    {
+      "text": "Puzzle Streak",
+      "href": "/streak"
+    },
+    {
+      "text": "Puzzle Storm",
+      "href": "/storm"
+    },
+    {
+      "text": "Puzzle Racer",
+      "href": "/racer"
+    },
+    {
+      "text": "Learn",
+      "href": "/learn"
+    },
+    {
+      "text": "Chess basics",
+      "href": "/learn"
+    },
+    {
+      "text": "Practice",
+      "href": "/practice"
+    },
+    {
+      "text": "Coordinates",
+      "href": "/training/coordinate"
+    },
+    {
+      "text": "Study",
+      "href": "/study"
+    },
+    {
+      "text": "Coaches",
+      "href": "/coach"
+    },
+    {
+      "text": "Watch",
+      "href": "/broadcast"
+    },
+    {
+      "text": "Broadcasts",
+      "href": "/broadcast"
+    },
+    {
+      "text": "Lichess TV",
+      "href": "/tv"
+    },
+    {
+      "text": "Current games",
+      "href": "/games"
+    },
+    {
+      "text": "Streamers",
+      "href": "/streamer"
+    },
+    {
+      "text": "Video library",
+      "href": "/video"
+    },
+    {
+      "text": "Community",
+      "href": "/player"
+    },
+    {
+      "text": "Players",
+      "href": "/player"
+    },
+    {
+      "text": "Teams",
+      "href": "/team"
+    },
+    {
+      "text": "Forum",
+      "href": "/forum"
+    },
+    {
+      "text": "Blog",
+      "href": "/blog/community"
+    },
+    {
+      "text": "Tools",
+      "href": "/analysis"
+    },
+    {
+      "text": "Analysis board",
+      "href": "/analysis"
+    },
+    {
+      "text": "Openings",
+      "href": "/opening"
+    },
+    {
+      "text": "Board editor",
+      "href": "/editor"
+    },
+    {
+      "text": "Import game",
+      "href": "/paste"
+    },
+    {
+      "text": "Advanced search",
+      "href": "/games/search"
+    },
+    {
+      "text": "Donate",
+      "href": "/patron"
+    },
+    {
+      "text": "No text",
+      "href": "/faq#autoplay"
+    },
+    {
+      "text": "Sign in",
+      "href": "/login?referrer=/"
+    },
+    {
+      "text": "GM Night-King96  lichess.org Bullet Saturday",
+      "href": "/streamer/night-king96/redirect"
+    },
+    {
+      "text": "Streamers »",
+      "href": "/streamer"
+    },
+    {
+      "text": "Titled Arena November '24 Titled only, $1,000 prize pool 337 players •",
+      "href": "/tournament/nov24lta"
+    },
+    {
+      "text": "Horde Shield Arena Battle for the Horde Shield 216 players •",
+      "href": "/tournament/Wol0Hrc0"
+    },
+    {
+      "text": "Weekly Atomic Arena 128 players • Playing now",
+      "href": "/tournament/67svjrny"
+    },
+    {
+      "text": "Rapid Swiss 1 player •",
+      "href": "/swiss/7e0hcKXR"
+    },
+    {
+      "text": "really",
+      "href": "/features"
+    },
+    {
+      "text": "About Lichess...",
+      "href": "/about"
+    },
+    {
+      "text": "GM  chessmaster2006 3178 0:14 GM  KontraJaKO 3191 0:18",
+      "href": "/tv"
+    },
+    {
+      "text": "Puzzle of the day White to play",
+      "href": "/training/daily"
+    },
+    {
+      "text": "22 Nov 2024 mullerrj How to improve in chess- for beginners through intermediate!",
+      "href": "/@/mullerrj/blog/how-to-improve-in-chess-for-beginners-through-intermediate/VQZ774Sf"
+    },
+    {
+      "text": "15 Nov 2024 andreagobbez Deep Learning Self-Play - Bot journey!",
+      "href": "/@/andreagobbez/blog/deep-learning-self-play-bot-journey/nhlMZ7tQ"
+    },
+    {
+      "text": "20 Nov 2024 GM  GABUZYAN_CHESSMOOD How Being Rich Almost Killed My Chess Career",
+      "href": "/@/GABUZYAN_CHESSMOOD/blog/how-being-rich-almost-killed-my-chess-career/ZfYdsIKI"
+    },
+    {
+      "text": "21 Nov 2024 FM  juancruzariasTDF How to Win a Won game by Controlling Change",
+      "href": "/@/juancruzariasTDF/blog/how-to-win-a-won-game-by-controlling-change/7qSr45Mn"
+    },
+    {
+      "text": "21 Nov 2024 TheOnoZone What's the Point of Puzzles?",
+      "href": "/@/TheOnoZone/blog/whats-the-point-of-puzzles/biZe93DT"
+    },
+    {
+      "text": "20 Nov 2024 FM  Coach_Istvanovszki Middlegame Madness #1: The Intuitive Sacrifice - VIDEO",
+      "href": "/@/Coach_Istvanovszki/blog/middlegame-madness-1-the-intuitive-sacrifice-video/5rW1O1z6"
+    },
+    {
+      "text": "15 Nov 2024 WFM  fla2021 The Power of the Fixed Center",
+      "href": "/@/fla2021/blog/the-power-of-the-fixed-center/WuRpW5Kg"
+    },
+    {
+      "text": "20 Nov 2024 HelloImRiley Training Game #10 with Super Eval",
+      "href": "/@/HelloImRiley/blog/training-game-10-with-super-eval/HPwLzyDb"
+    },
+    {
+      "text": "21 Nov 2024 CM  loristavernier What should you eat to improve at Chess ?",
+      "href": "/@/loristavernier/blog/what-should-you-eat-to-improve-at-chess-/THbX0eUz"
+    },
+    {
+      "text": "Open tournaments More »",
+      "href": "/tournament"
+    },
+    {
+      "text": "Horde Shield",
+      "href": "/tournament/Wol0Hrc0"
+    },
+    {
+      "text": "Titled Arena November '24",
+      "href": "/tournament/nov24lta"
+    },
+    {
+      "text": "Weekly Atomic",
+      "href": "/tournament/67svjrny"
+    },
+    {
+      "text": "Daily Rapid",
+      "href": "/tournament/UUFDUex4"
+    },
+    {
+      "text": "Daily Crazyhouse",
+      "href": "/tournament/sTOJnPMo"
+    },
+    {
+      "text": "Hourly HyperBullet",
+      "href": "/tournament/dvA826mW"
+    },
+    {
+      "text": "≤1700 Blitz",
+      "href": "/tournament/NEsmPyqN"
+    },
+    {
+      "text": "Hourly Bullet",
+      "href": "/tournament/Wgb5MWLU"
+    },
+    {
+      "text": "≤2000 SuperBlitz",
+      "href": "/tournament/2E6V331Y"
+    },
+    {
+      "text": "Hourly Blitz",
+      "href": "/tournament/mPFJeEFC"
+    },
+    {
+      "text": "≤1500 Rapid",
+      "href": "/tournament/tP19bw8n"
+    },
+    {
+      "text": "≤1300 Bullet",
+      "href": "/tournament/vpmse93Z"
+    },
+    {
+      "text": "Semi-Slav Defense SuperBlitz",
+      "href": "/tournament/3pImmOYD"
+    },
+    {
+      "text": "No text",
+      "href": "/feed#0RDT45"
+    },
+    {
+      "text": "Warm-up Arena",
+      "href": "https://lichess.org/tournament/nov24wua"
+    },
+    {
+      "text": "Titled Arena",
+      "href": "https://lichess.org/tournament/nov24lta"
+    },
+    {
+      "text": "No text",
+      "href": "/feed#SOYvWs"
+    },
+    {
+      "text": "Magnus Carlsen",
+      "href": "https://lichess.org/fide/1503014/Carlsen_Magnus"
+    },
+    {
+      "text": "Fabiano Caruana",
+      "href": "https://lichess.org/fide/2020009/Caruana_Fabiano"
+    },
+    {
+      "text": "Chess960",
+      "href": "https://lichess.org/variant/chess960"
+    },
+    {
+      "text": "Freestyle Chess Summit Singapore",
+      "href": "https://lichess.org/broadcast/freestyle-chess-launch-event-singapore--carlsen-vs-caruana/KieLmany"
+    },
+    {
+      "text": "No text",
+      "href": "/feed#yRtcRo"
+    },
+    {
+      "text": "Chess960",
+      "href": "https://lichess.org/variant/chess960"
+    },
+    {
+      "text": "Magnus Carlsen",
+      "href": "https://lichess.org/fide/1503014/Carlsen_Magnus"
+    },
+    {
+      "text": "Fabiano Caruana",
+      "href": "https://lichess.org/fide/2020009/Caruana_Fabiano"
+    },
+    {
+      "text": "Freestyle Chess Summit Singapore",
+      "href": "https://lichess.org/broadcast/freestyle-chess-launch-event-singapore--carlsen-vs-caruana/KieLmany"
+    },
+    {
+      "text": "broadcast",
+      "href": "https://lichess.org/broadcast/freestyle-chess-launch-event-singapore--carlsen-vs-caruana/KieLmany"
+    },
+    {
+      "text": "No text",
+      "href": "/feed#F2kMqO"
+    },
+    {
+      "text": "Aleksandar Inđić",
+      "href": "https://lichess.org/fide/911925/Indjic_Aleksandar"
+    },
+    {
+      "text": "European Individual Chess Championship 2024",
+      "href": "https://lichess.org/broadcast/european-individual-chess-championship-2024--boards-1-64/NW5YDA3r"
+    },
+    {
+      "text": "FIDE World Cup 2025",
+      "href": "https://en.wikipedia.org/wiki/Chess_World_Cup"
+    },
+    {
+      "text": "No text",
+      "href": "/feed#HoS4kL"
+    },
+    {
+      "text": "IM YOSEPH AND FRIENDS",
+      "href": "https://lichess.org/team/im-yoseph-and-friends"
+    },
+    {
+      "text": "Streamers Battle November 2024",
+      "href": "https://lichess.org/tournament/nov24str"
+    },
+    {
+      "text": "Полина Янученко1",
+      "href": "https://lichess.org/team/4WJHSeyU"
+    },
+    {
+      "text": "Zhigalko_Sergei & Friends",
+      "href": "https://lichess.org/team/zhigalko_sergei-fan-club"
+    },
+    {
+      "text": "IM Manitodeplomo Fan Club",
+      "href": "https://lichess.org/team/im-manitodeplomo-fan-club"
+    },
+    {
+      "text": "streamers",
+      "href": "https://lichess.org/streamer"
+    },
+    {
+      "text": "No text",
+      "href": "/feed#yrczxj"
+    },
+    {
+      "text": "week",
+      "href": "https://lichess.org/tournament/calendar"
+    },
+    {
+      "text": "Shield Arenas",
+      "href": "https://lichess.org/@/lichess/blog/introducing-shield-tournaments/Wh36WiQA"
+    },
+    {
+      "text": "Chess960 Arena",
+      "href": "https://lichess.org/tournament/q6K69hvI"
+    },
+    {
+      "text": "unique trophy",
+      "href": "https://lichess.org/tournament/shields"
+    },
+    {
+      "text": "No text",
+      "href": "/feed#IA9rdF"
+    },
+    {
+      "text": "Winter's Comin' Arena",
+      "href": "https://lichess.org/tournament/UsNWGpve"
+    },
+    {
+      "text": "Connecticut State Chess Association",
+      "href": "https://lichess.org/team/csca-open-events"
+    },
+    {
+      "text": "All updates »",
+      "href": "/feed"
+    },
+    {
+      "text": "Donate Become a Lichess Patron",
+      "href": "/patron"
+    },
+    {
+      "text": "Swag Store Play chess in style",
+      "href": "https://shop.spreadshirt.com/lichess-org"
+    },
+    {
+      "text": "About Lichess",
+      "href": "/about"
+    },
+    {
+      "text": "FAQ",
+      "href": "/faq"
+    },
+    {
+      "text": "Contact",
+      "href": "/contact"
+    },
+    {
+      "text": "Mobile App",
+      "href": "/mobile"
+    },
+    {
+      "text": "Terms of Service",
+      "href": "/terms-of-service"
+    },
+    {
+      "text": "Privacy",
+      "href": "/privacy"
+    },
+    {
+      "text": "Source Code",
+      "href": "/source"
+    },
+    {
+      "text": "Ads",
+      "href": "/ads"
+    },
+    {
+      "text": "Mastodon",
+      "href": "/run/external-link/mastodon"
+    },
+    {
+      "text": "GitHub",
+      "href": "/run/external-link/github"
+    },
+    {
+      "text": "Discord",
+      "href": "/run/external-link/discord"
+    },
+    {
+      "text": "Twitter",
+      "href": "/run/external-link/twitter"
+    },
+    {
+      "text": "YouTube",
+      "href": "/run/external-link/youtube"
+    },
+    {
+      "text": "Twitch",
+      "href": "/run/external-link/twitch"
+    }
+  ],
+  "images": [
+    {
+      "src": "https://image.lichess1.org/display?fmt=webp&h=250&op=thumbnail&path=mullerrj:ublog:VQZ774Sf:thBp4Zp5.webp&w=400&sig=7e3e5b0148378b027fb857120fbffb01bdbef896",
+      "alt": ""
+    },
+    {
+      "src": "https://image.lichess1.org/display?fmt=webp&h=250&op=thumbnail&path=andreagobbez:ublog:nhlMZ7tQ:s4sfFR2O.webp&w=400&sig=305c3e4772afeccfe721e072bc73b48b72e8aefd",
+      "alt": ""
+    },
+    {
+      "src": "https://image.lichess1.org/display?fmt=webp&h=250&op=thumbnail&path=gabuzyan_chessmood:ublog:ZfYdsIKI:U6Ar39l3.webp&w=400&sig=2a0096a5925705ff178ee154da8468386dba5e6d",
+      "alt": ""
+    },
+    {
+      "src": "https://image.lichess1.org/display?fmt=webp&h=250&op=thumbnail&path=juancruzariastdf:ublog:7qSr45Mn:qrDZ1JRI.webp&w=400&sig=9a0a3250942ececee4df7d9457bf8ffdfc9ea83c",
+      "alt": ""
+    },
+    {
+      "src": "https://image.lichess1.org/display?fmt=webp&h=250&op=thumbnail&path=theonozone:ublog:biZe93DT:Q4a7l3S2.webp&w=400&sig=a345159e0ed1aed2c45ccfe13e825c48091f7401",
+      "alt": ""
+    },
+    {
+      "src": "https://image.lichess1.org/display?fmt=webp&h=250&op=thumbnail&path=coach_istvanovszki:ublog:5rW1O1z6:mbXRmIBf.webp&w=400&sig=722f0274fe8f3608a35755ae8330c3e31764ce1f",
+      "alt": ""
+    },
+    {
+      "src": "https://image.lichess1.org/display?fmt=webp&h=250&op=thumbnail&path=fla2021:ublog:WuRpW5Kg:aBPcEZyM.webp&w=400&sig=678473684ca9122472cd99d2cc59d898c5df6577",
+      "alt": ""
+    },
+    {
+      "src": "https://image.lichess1.org/display?fmt=webp&h=250&op=thumbnail&path=helloimriley:ublog:HPwLzyDb:Wo3saoVO.webp&w=400&sig=159ec9f201a960e9cac65fca73d05658a2eee933",
+      "alt": ""
+    },
+    {
+      "src": "https://image.lichess1.org/display?fmt=webp&h=250&op=thumbnail&path=loristavernier:ublog:THbX0eUz:tJftEl7x.webp&w=400&sig=0b2390214a9e08acc8168f04dffae7fe09908f5e",
+      "alt": ""
+    },
+    {
+      "src": "https://lichess1.org/assets/______2/flair/img/activity.lichess-bullet.webp",
+      "alt": ""
+    },
+    {
+      "src": "https://lichess1.org/assets/______2/flair/img/activity.trophy.webp",
+      "alt": ""
+    },
+    {
+      "src": "https://lichess1.org/assets/______2/flair/img/activity.chess.webp",
+      "alt": ""
+    },
+    {
+      "src": "https://lichess1.org/assets/______2/flair/img/activity.trophy.webp",
+      "alt": ""
+    },
+    {
+      "src": "https://lichess1.org/assets/______2/flair/img/activity.party-popper.webp",
+      "alt": ""
+    },
+    {
+      "src": "https://lichess1.org/assets/______2/flair/img/activity.lichess-variant-960.webp",
+      "alt": ""
+    },
+    {
+      "src": "https://lichess1.org/assets/______2/flair/img/activity.lichess-blitz.webp",
+      "alt": ""
+    },
+    {
+      "src": "https://lichess1.org/assets/______2/flair/img/symbols.white-star.webp",
+      "alt": ""
+    }
+  ]
+}
