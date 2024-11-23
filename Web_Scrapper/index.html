@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rust Web Scraper</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Rust Web Scraper</h1>
+    <form id="scraper-form">
+        <label for="url">Enter Website URL:</label>
+        <input type="text" id="url" name="url" placeholder="https://example.com" required>
+        <button type="submit">Scrape</button>
+    </form>
+
+    <h2>Scraped Data:</h2>
+    <div id="scraped-data"></div>
+
+    <script>
+        document.getElementById("scraper-form").addEventListener("submit", async function (event) {
+            event.preventDefault();
+
+            // Get the URL input
+            const urlInput = document.getElementById("url").value;
+
+            // Clear previous results
+            const scrapedDataDiv = document.getElementById("scraped-data");
+            scrapedDataDiv.innerHTML = "";
+
+            try {
+                // Send the POST request to the Rust backend
+                const response = await fetch("http://127.0.0.1:6969/scrape", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ url: urlInput }),
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+
+                // Parse the response data
+                const responseData = await response.json();
+                console.log(responseData);
+
+                // Display the data in tables
+                if (responseData.title) {
+                    scrapedDataDiv.innerHTML += `<h3>Title</h3><p>${responseData.title}</p>`;
+                }
+                if (responseData.meta_description) {
+                    scrapedDataDiv.innerHTML += `<h3>Meta Description</h3><p>${responseData.meta_description}</p>`;
+                }
+                if (responseData.headings.length > 0) {
+                    // Wrap each heading in an array so that it works with `map`
+                    const headingRows = responseData.headings.map(heading => [heading]);
+                    scrapedDataDiv.innerHTML += generateTable("Headings", headingRows, ["Heading"]);
+                }
+                if (responseData.links.length > 0) {
+                    // Wrap each link in an array so that it works with `map`
+                    const linkRows = responseData.links.map(link => [link]);
+                    scrapedDataDiv.innerHTML += generateTable("Links", linkRows, ["Link"]);
+                }
+                if (responseData.images.length > 0) {
+                    // Wrap each link in an array so that it works with `map`
+                    const imagesRows = responseData.images.map(images => [images]);
+                    scrapedDataDiv.innerHTML += generateTable("images", imagesRows, ["images"]);
+                }
+            } catch (error) {
+                scrapedDataDiv.innerHTML = `<p class="error">Error: ${error.message}</p>`;
+            }
+        });
+
+        function generateTable(title, data, headers) {
+            let tableHtml = `<h3>${title}</h3><table>`;
+            tableHtml += `<tr>${headers.map(header => `<th>${header}</th>`).join("")}</tr>`;
+            data.forEach(row => {
+                tableHtml += `<tr>${row.map(cell => `<td>${cell}</td>`).join("")}</tr>`;
+            });
+            tableHtml += `</table>`;
+            return tableHtml;
+        }
+
+    </script>
+</body>
+
+</html>

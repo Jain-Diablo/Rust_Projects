@@ -1,157 +1,138 @@
-use reqwest::blocking::{Client, Response};
-use scraper::{Html, Selector};
-use serde::Serialize;
-use std::fs::File;
-use std::io::Write;
+use std::vec;
 
-// Struct to store all scraped data
+use actix_cors::Cors;
+use actix_web::{post, web, App, HttpResponse, HttpServer, Responder};
+use log::{error, info};
+use reqwest::Client;
+use scraper::{Html, Selector};
+use serde::{Deserialize, Serialize};
+
+#[derive(Deserialize)]
+struct ScrapeRequest {
+    url: String,
+}
+
 #[derive(Serialize)]
-struct WebData {
+struct ScrapeResponse {
     title: Option<String>,
     meta_description: Option<String>,
     headings: Vec<String>,
-    links: Vec<Link>,
-    images: Vec<Image>,
+    links: Vec<String>,
+    images: Vec<String>,
 }
 
-// Struct to store links with their text
-#[derive(Serialize)]
-struct Link {
-    text: String,
-    href: String,
+#[post("/scrape")]
+async fn scrape(data: web::Json<ScrapeRequest>) -> impl Responder {
+    let url = &data.url;
+
+    // Scrape the website
+    match scrape_website(url).await {
+        Ok(res) => {
+            info!("Scraping successful for: {}", url);
+            HttpResponse::Ok().json(res)
+        }
+        Err(err) => {
+            error!("Error scraping URL {}: {}", url, err);
+            HttpResponse::InternalServerError().json(ScrapeResponse {
+                title: None,
+                meta_description: Some(format!("Error: {}", err)),
+                headings: vec![],
+                links: vec![],
+                images: vec![],
+            })
+        }
+    }
 }
 
-// Struct to store image data
-#[derive(Serialize)]
-struct Image {
-    src: String,
-    alt: String,
-}
-
-// Main function
-fn main() {
-    println!("Enter the website URL (e.g., https://example.com): ");
-    let mut input = String::new();
-    std::io::stdin().read_line(&mut input).unwrap();
-    let url = input.trim();
-
+async fn scrape_website(url: &str) -> Result<ScrapeResponse, String> {
+    // Fetch the webpage
     let client = Client::new();
+    let response = client.get(url).send().await;
 
-    match scrape_website(url, &client,) {
-        Ok(data) => {
-            // Save the JSON data to a file
-            let json_data = serde_json::to_string_pretty(&data).unwrap();
-            let mut file = File::create("output.json").unwrap();
-            file.write_all(json_data.as_bytes()).unwrap();
-            println!("Scraped data has been saved to output.json.");
+    // Check if fetching was successful
+    let body = match response {
+        Ok(resp) => {
+            if resp.status().is_success() {
+                info!("Successfully fetched URL: {}", url);
+                resp.text()
+                    .await
+                    .map_err(|e| format!("Failed to read body: {}", e))?
+            } else {
+                error!(
+                    "Failed to fetch URL: {} with status: {}",
+                    url,
+                    resp.status()
+                );
+                return Err(format!(
+                    "Failed to fetch the webpage with status: {}",
+                    resp.status()
+                ));
+            }
         }
-        Err(e) => eprintln!("Error: {}", e),
-    }
+        Err(e) => {
+            error!("Error fetching URL: {}. Error: {}", url, e);
+            return Err(format!("Error fetching URL: {}", e));
+        }
+    };
+
+    // Parse the HTML document
+    let document = Html::parse_document(&body);
+
+    // Extract title
+    let title_selector = Selector::parse("title").unwrap();
+    let title = document
+        .select(&title_selector)
+        .next()
+        .map(|el| el.inner_html());
+
+    // Extract meta description
+    let meta_selector = Selector::parse("meta[name=\"description\"]").unwrap();
+    let meta_description = document
+        .select(&meta_selector)
+        .next()
+        .and_then(|el| el.value().attr("content").map(String::from));
+
+    // Extract headings
+    let heading_selector = Selector::parse("h1, h2, h3, h4, h5, h6").unwrap();
+    let headings: Vec<String> = document
+        .select(&heading_selector)
+        .map(|el| el.inner_html().trim().to_string())
+        .collect();
+
+    // Extract links
+    let link_selector = Selector::parse("a").unwrap();
+    let links: Vec<String> = document
+        .select(&link_selector)
+        .filter_map(|el| el.value().attr("href").map(String::from))
+        .collect();
+
+    let image_selector = Selector::parse("img").unwrap();
+    let images: Vec<String> = document
+        .select(&image_selector)
+        .filter_map(|el| el.value().attr("src").map(String::from))
+        .collect();
+
+    // Return the extracted data
+    Ok(ScrapeResponse {
+        title,
+        meta_description,
+        headings,
+        links,
+        images,
+    })
 }
 
-// Function to scrape a website
-fn scrape_website(
-    url: &str,
-    client: &Client,
-) -> Result<WebData, Box<dyn std::error::Error>> {
-    // Recursive scraping with pagination
-    let mut all_links = Vec::new();
-    let mut all_images = Vec::new();
-    let mut current_url = url.to_string();
-    let mut first_page_data: Option<WebData> = None;
+#[actix_web::main]
+async fn main() -> std::io::Result<()> {
+    // Initialize logging for debugging
+    env_logger::init();
 
-    loop {
-        let response = fetch_page(&current_url, client)?;
-        let html = response.text()?;
-        let document = Html::parse_document(&html);
-
-        // Extract the title and meta description from the first page only
-        if first_page_data.is_none() {
-            let title_selector = Selector::parse("title").unwrap();
-            let title = document
-                .select(&title_selector)
-                .next()
-                .map(|el| el.inner_html());
-
-            let meta_selector = Selector::parse("meta[name=\"description\"]").unwrap();
-            let meta_description = document
-                .select(&meta_selector)
-                .next()
-                .and_then(|el| el.value().attr("content").map(String::from));
-
-            first_page_data = Some(WebData {
-                title,
-                meta_description,
-                headings: Vec::new(),
-                links: Vec::new(),
-                images: Vec::new(),
-            });
-        }
-
-        // Extract headings
-        let heading_selector = Selector::parse("h1, h2, h3, h4, h5, h6").unwrap();
-        let _headings: Vec<String> = document
-            .select(&heading_selector)
-            .map(|el| el.inner_html().trim().to_string())
-            .collect();
-
-        // Extract links
-        let link_selector = Selector::parse("a").unwrap();
-        let links: Vec<Link> = document
-            .select(&link_selector)
-            .filter_map(|el| {
-                let href = el.value().attr("href")?;
-                let text = el.text().collect::<Vec<_>>().join(" ").trim().to_string();
-                Some(Link {
-                    text: if text.is_empty() { "No text".to_string() } else { text },
-                    href: href.to_string(),
-                })
-            })
-            .collect();
-        all_links.extend(links);
-
-        // Extract images
-        let image_selector = Selector::parse("img").unwrap();
-        let images: Vec<Image> = document
-            .select(&image_selector)
-            .filter_map(|el| {
-                let src = el.value().attr("src")?;
-                let alt = el.value().attr("alt").unwrap_or("").to_string();
-                Some(Image {
-                    src: src.to_string(),
-                    alt,
-                })
-            })
-            .collect();
-        all_images.extend(images);
-
-        // Check for next page (pagination)
-        let next_page_selector = Selector::parse("a.next, a[rel=\"next\"]").unwrap();
-        if let Some(next_page) = document
-            .select(&next_page_selector)
-            .next()
-            .and_then(|el| el.value().attr("href"))
-        {
-            current_url = next_page.to_string();
-        } else {
-            break; // No next page, stop pagination
-        }
-    }
-
-    // Combine all data
-    let mut web_data = first_page_data.unwrap();
-    web_data.headings = all_links.iter().map(|link| link.text.clone()).collect();
-    web_data.links = all_links;
-    web_data.images = all_images;
-
-    Ok(web_data)
-}
-
-// Fetch a single webpage
-fn fetch_page(
-    url: &str,
-    client: &Client,
-) -> Result<Response, reqwest::Error> {
-    let request = client.get(url);
-    request.send()
+    HttpServer::new(|| {
+        App::new()
+            .wrap(Cors::permissive()) // Enabling CORS for all origins
+            .service(scrape) // Registering the scrape service
+    })
+    .bind("127.0.0.1:6969")? // Binding to localhost:6969
+    .run()
+    .await
 }
