@@ -1,0 +1,7 @@
+[package]
+name = "Chat_Application"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+ctrlc = "3.3"
