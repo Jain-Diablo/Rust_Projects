@@ -1,1 +1,1 @@
-C:\Rust\ Projects\Chat_application\target\debug\client.exe: C:\Rust\ Projects\Chat_application\src\bin\client.rs
+C:\Rust\ Projects\Chat_Application\target\debug\client.exe: C:\Rust\ Projects\Chat_Application\src\bin\client.rs

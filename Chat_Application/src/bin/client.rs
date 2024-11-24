@@ -1,36 +1,44 @@
-use std::io::{self, Write, Read};
+use std::io::{self, BufRead, Write};
 use std::net::TcpStream;
 use std::thread;
 
 fn main() {
-    let mut stream = TcpStream::connect("127.0.0.1:7878").expect("Could not connect to server");
+    let mut stream = TcpStream::connect("127.0.0.1:7878").unwrap();
+    let mut stdin = io::stdin().lock();
 
-    println!("Connected to the chat server! Type 'quit' to exit.");
-
-    let mut stream_clone = stream.try_clone().expect("Failed to clone stream");
-    
+    // Spawn a thread to listen for messages from the server
+    let stream_clone = stream.try_clone().unwrap();
     thread::spawn(move || {
-        let mut buffer = [0; 512];
-        loop {
-            match stream_clone.read(&mut buffer) {
-                Ok(0) => break, // Connection closed
-                Ok(_) => {
-                    let msg = String::from_utf8_lossy(&buffer);
-                    print!("Received: {}", msg);
-                }
-                Err(_) => break,
+        let mut buffer = String::new();
+        let mut reader = io::BufReader::new(stream_clone);
+
+        while let Ok(_) = reader.read_line(&mut buffer) {
+            if !buffer.is_empty() {
+                print!("{}", buffer); // Display server messages
+                buffer.clear();
             }
         }
     });
 
-    let stdin = io::stdin();
-    loop {
-        let mut input = String::new();
-        stdin.read_line(&mut input).expect("Failed to read input");
-        if input.trim().eq_ignore_ascii_case("quit") {
+    // Send messages to the server or quit if user types "exit"
+    let mut input = String::new();
+    while stdin.read_line(&mut input).is_ok() {
+        let trimmed_input = input.trim();
+        
+        if trimmed_input == "exit" || trimmed_input == "quit" {
             println!("Exiting...");
-            break;
+            stream.write_all(b"Goodbye!\n").unwrap();
+            break; // Exit the loop and disconnect from the server
         }
-        stream.write_all(input.as_bytes()).expect("Failed to send message");
+
+        if !trimmed_input.is_empty() {
+            stream.write_all(input.as_bytes()).unwrap();
+            stream.flush().unwrap();
+        }
+
+        input.clear();
     }
+
+    // Close the stream before exiting
+    drop(stream); // This will close the connection when dropped
 }
